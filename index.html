@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
  
-  <title>4FDMC</title>
+  <title>JUGUEMOS</title>
 
   <!--grupo CSS-->
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> 
-        
+    <link rel="stylesheet" href="css/Extra.css" />    
         
 
 
@@ -18,67 +18,46 @@
   <script src="js/jquery-1.11.2.min.js"></script>
   <script src="js/jquery.mobile-1.4.5.min.js"></script>
   <script src="js/acciones.js" type="text/javascript"></script>
-  <!-- <script src="phonegap.js" type="text/javascript"></script> -->
+  <script src="phonegap.js" type="text/javascript"></script>
  </head>
 
  <body>
  
-
-<div data-role="page" id="principal" >   
+ <!-- Principal -->
+ <div data-role="page" id="principal" >   
   <div data-role="header">
-    <h1>JUEGO</h1>
+    <h1>JUGAR</h1>
   </div>
   <div align="center">
   <div data-role="main" class="ui-content">
-    <a href="#juego" id="btnjugar"
-     class="ui-btn ui-icon-arrow-r ui-btn-icon-right ui-corner-all ui-btn-inline">Jugar</a>
-</div>
-</div>
+    <a href="#tablero" id="btnjuguemos" class="ui-btn ui-btn-inline ">JUGUEMOS</a></div>
+  </div>
 
   <div data-role="footer">
-    <h1>@DeicyMarinCohetero</h1>
+    <h2>@DeicyMarinCohetero</h2>
   </div>
  </div>  
-
- <div data-role="page" id="juego" >   
-  <div data-role="header">
-    <h1>JUEGO</h1>
-  </div>
-
- <div data-role="main" class="ui-content">
-  <div>
-   <div style="width:50%; height:250px; background-color:#3FF; float:left"
-   id="uno">
-   </div>
-   <div style="width:50%; height:250px; background-color:#F99; float:left"
-   id="dos">
-   </div>
-  </div>
-  <div>
-   <div style="width:50%; height:250px; background-color:#C9F; float:left"
-   id="tres">
-   </div>
-   <div style="width:50%; height:250px; background-color:#6C3; float:left"
-   id="cuatro">
-   </div>
-  </div>
- </div>
-
-  <div data-role="footer">
-    <h1>PUNTUACION :)</h1>
-    <div style="width:25%; float:left">
-     <p id="puntuacion1"></p>
-    </div>
-    <div style="width:25%; float:left">  
-     <p id="puntuacion2"></p>
-    </div>
-    <div style="width:25%;  float:left"> 
-    <p id="puntuacion3"></p>
-    </div>
-    <div style="width:25%;  float:left">
-    <p id="puntuacion4"></p>
-    </div>
-  </div>
  
+ <!-- Principal -->
+ 
+ <!-- Page2 -->
+ <div data-role="page" id="tablero" >   
+  <div data-role="header">                                                     
+    
+  </div>
+
+  <div data-role="main" class="ui-content">
+   <div id="B1" style="background-color:#CF9;," class="cuadro"> &nbsp; </div>
+    <div id="B2" style="background-color:#C6F;," class="cuadro"> &nbsp; </div>
+     <div id="B3" style="background-color:#F99;," class="cuadro"> &nbsp; </div>
+      <div id="B4" style="background-color:#0CF;," class="cuadro"> &nbsp; </div>
+  </div>                                       
+
+  <div data-role="footer" data-position="fixen">
+    <h1><div id="pantalla">Pulso:</div></h1>
+  </div>
+ </div>  
+ <!-- Page2 -->
+
  </body>
 </html> 

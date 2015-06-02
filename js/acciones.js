@@ -1,34 +1,43 @@
 // JavaScript Document
 $(document).ready(function(e) {
-//document.addEventListener("deviceready",function(){
-	var x = 1;
-	var suma1 = 0;
-	var suma2 = 0;
-	var suma3 = 0;
-	var suma4 = 0;
+document.addEventListener("deviceready",function(){
 	
-	$('#uno').on('click', function(){
+	audio=window.plugins.LowlatencyAudio;
+		audio.preloadFX('B1','audio/C.mp3',function(){},function(msg){alert("Error"+msg);});
+		audio.preloadFX('B2','audio/D.mp3',function(){},function(msg){alert("Error"+msg);});
+		audio.preloadFX('B3','audio/E.mp3',function(){},function(msg){alert("Error"+msg);});
+		audio.preloadFX('B4','audio/F.mp3',function(){},function(msg){alert("Error"+msg);});
+	$('#btnjugar').on('tap', function(){
+		var pantalla = $.mobile.getScreenHeight();
+		var encabezado = $('.ui-header').outerHeight();
+		var pie = $('.ui-footer').outerHeight();
+		var contenido = $('ui.content').outerHeight();
+		var alto = (pantalla - encabezado - pie)/2;
+		$('.cuadro').height(alto);
+		});//btnjugar.click
 		
-		suma1 = suma1 + x;
-		$('#puntuacion1').text(suma1)
+		$('.cuadro').on('vmousedown', function(){
+			$('#pantalla').append(quien($(this).attr('id')));
+			$(this).addClass('pulsado');
+			});//mousedown
+		
+		function quien (q)
+	{
+			audio.play(q);
+		return q.substring(1);
+	}	
+		
+		$('.cuadro').on('vmouseup', function (){
+			
+			$(this).removeClass('pulsado');
 		});
+		
+		
+		
 	
-	$('#dos').on ('click', function(){
-		suma2 = suma2 + x;
-		$('#puntuacion2').text(suma2)
-	});
-	
-	$('#tres').on ('click', function(){
-		suma3 = suma3 + x;
-		$('#puntuacion3').text(suma3)
-	});
-	
-	$('#cuatro').on ('click', function(){
-		suma4 = suma4 + x;
-		$('#puntuacion4').text(suma4)
-	});
-		 
-//}); 
+}); 
 });
+
+
 
 
