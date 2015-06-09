@@ -2,14 +2,14 @@
 $(document).ready(function(e) {
 document.addEventListener("deviceready",function(){
 	
-	var basedatos= window.sqliteplugin.openDataBase({name: "coloresBD.db",createFromLocation:1});
-	audio=window.plugins.LowlatencyAudio;
-		audio.preloadFX('B1','audio/C.mp3',function(){},function(msg){alert("Error"+msg);});
-		audio.preloadFX('B2','audio/D.mp3',function(){},function(msg){alert("Error"+msg);});
-		audio.preloadFX('B3','audio/E.mp3',function(){},function(msg){alert("Error"+msg);});
-		audio.preloadFX('B4','audio/F.mp3',function(){},function(msg){alert("Error"+msg);});
-	$('#btnjugar').on('tap', function(){
-		
+	var basedatos= window.sqlitePlugin.openDatabase({name:"coloresBD.db", createFromLocation:1});
+	cargarnombrejugador();
+ audio = window.plugins.LowLatencyAudio;
+ audio.preloadFX ('B1', 'audio/C.mp3', function () {}, function(msg) {alert("Error " + msg);});
+ audio.preloadFX ('B2', 'audio/D.mp3', function () {}, function(msg) {alert("Error " + msg);});
+ audio.preloadFX ('B3', 'audio/E.mp3', function () {}, function(msg) {alert("Error " + msg);});
+ audio.preloadFX ('B4', 'audio/F.mp3', function () {}, function(msg) {alert("Error " + msg);});
+	    $('#btnjugar').on('tap', function(){
 		var pantalla = $.mobile.getScreenHeight();
 		var encabezado = $('.ui-header').outerHeight();
 		var pie = $('.ui-footer').outerHeight();
@@ -25,7 +25,7 @@ document.addEventListener("deviceready",function(){
 		
 		function quien (q)
 	{
-			audio.play(q);
+		audio.play(q);
 		return q.substring(1);
 	}	
 		
@@ -35,17 +35,34 @@ document.addEventListener("deviceready",function(){
 		});
 		
 		
-		function cargarnombrejugador()
+		function cargarnombrejugador ()
 		{
 			basedatos.transaction(function(ejecutar){
-				var sql="SELECT NombreUsuario FROM Usuario";
-				ejecutar.executeSql(sql,undefined,function(ejecutar,resultado){
-				var datosJugador=resultado.row.item(0);
+			var sql="SELECT NombreUsuario FROM Usuario";
+			ejecutar.executeSql(sql, undefinded, function(ejecutar, resultado) {
+				var datosJugador= resultado.rows.item(0);  
 				$('#jugador').text(datosJugador.NombreUsuario);
-			
-				});
-		    });
+		});			
+		});		
 		}
-					
+		
+		$('#btnconfigurar').on('tap',function(){
+			$('#txtnombre').val($('#jugador').text());
+		});
+		
+		$('#btnguardar').on('tap',function(){
+			var nuevonombre=$('#txtnombre').val();
+			basedatos.transaction(function(consulta){
+		    consulta.exeSql("UPDATE Usuario set NombreUsuario=? WHERE ClaveUsuario='1';",[    nuevonombre]);
+     	});
+		 cargarnombrejugador();
+		  
+	    });
+
+	    
 }); 
 });
+
+
+
+

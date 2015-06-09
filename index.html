@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
  
-  <title>JUGUEMOS</title>
+  <title>Aplicacion07</title>
 
   <!--grupo CSS-->
   <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css" />
   <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> 
-    <link rel="stylesheet" href="css/Extra.css" />    
+  <link rel="stylesheet" href="css/extra.css" />   
         
 
 
@@ -24,45 +24,68 @@
  <body>
  
  <!-- Principal -->
- <div data-role="page" id="principal" >   
+<div data-role="page" id="principal" >   
   <div data-role="header">
-    <h1>JUGAR</h1>
+    <h1>JUGUEMOS</h1>
   </div>
-  <div align="center">
-  <div>
 
-   <div data-role="main" class="ui-content">
-   <div id"jugador">
-   </div>
-   
-    <a href="#tablero" id="btnjuguemos" class="ui-btn ui-btn-inline ">JUGUEMOS</a></div>
-  </div>
+
+ 
+ <div id="jugador">
+  </div> 
+   <div data-role="main"  align="center" class="ui-content">
+ 
+  
+   <a href="#tablero" id="btnjugar"  class="ui-btn ui-icon-check ui-btn-icon-right ui-corner-all ui-btn-inline">JUGAR</a>
+     
+  <a href="#configuracion" id="btnconfigurar" " class="ui-btn ui-icon-gear ui-btn-icon-right ui-corner-all ui-btn-inline">CONFIGURACION</a>
+</div>
 
   <div data-role="footer">
-    <h2>@DeicyMarinCohetero</h2>
+    <h1>@DeicyMarinCohetero</h1>
   </div>
- </div>  
- 
+ </div>   
  <!-- Principal -->
  
- <!-- Page2 -->
- <div data-role="page" id="tablero" >   
-  <div data-role="header">                                                     
+  <!-- Page2 -->
+  <div data-role="page" id="tablero" >   
+ <div data-role="main" class="ui-content">
+   <div id="B1" style="background-color:#6FF;" class="cuadro"> &nbsp; </div>
+   <div id="B2" style="background-color:#F99;" class="cuadro"> &nbsp; </div>
+   <div id="B3" style="background-color:#93C;" class="cuadro"> &nbsp; </div>
+   <div id="B4" style="background-color:#3C6;" class="cuadro"> &nbsp; </div>
+ </div>
+ 
+ <div data-role="footer" data-position="fixed">
+    <h1><div id="pantalla"> PULSO: </div></h1>
+    
+  </div>
+    </div>
+
+  <!-- Page2 -->
+  
+  <!-- Page3 -->
+<div data-role="page" id="configuracion" >   
+  <div data-role="header">
     
   </div>
 
-  <div data-role="main" class="ui-content">
-   <div id="B1" style="background-color:#CF9;" class="cuadro"> &nbsp; </div>
-    <div id="B2" style="background-color:#C6F;" class="cuadro"> &nbsp; </div>
-     <div id="B3" style="background-color:#F99;" class="cuadro"> &nbsp; </div>
-      <div id="B4" style="background-color:#0CF;" class="cuadro"> &nbsp; </div>
-  </div>                                       
-
-  <div data-role="footer" data-position="fixen">
-    <h1><div id="pantalla">Pulso:</div></h1>
+  <div data-role="main"  align="center" class="ui-content">
+ 
+ <div id="jugador">
   </div>
- </div>  
- <!-- Page2 -->
+  <input id="txtnombre" type="text" name="user" placeholder="Nombre">
+ 
+      <a id="btnguardar" class="ui-btn ui-icon-star ui-btn-icon-right ui-corner-all ui-btn-inline">GUARDAR</a>
+</div>
 
+  <div align="center">
+  <div data-role="footer">
+     <a href="#principal" id="btninicio"
+     class="ui-btn ui-icon-home ui-btn-icon-right ui-icon-home ui-corner-all ui-btn-inline">INICIO</a>
+  </div>
+ </div>
+</div>   
+ <!-- Page3 -->
  </body>
 </html> 
